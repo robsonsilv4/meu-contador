@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Meu Contador</string>
+
+    <string name="bill_title">Título da despesa</string>
+    <string name="bill_type">Tipo da despesa</string>
+    <string name="bill_price">Valor da despesa</string>
+    <string name="bill_add">Adicionar Despesa</string>
 </resources>

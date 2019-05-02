@@ -18,7 +18,7 @@
             android:id="@+id/edit_text_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Título da despesa" />
+            android:hint="@string/bill_title" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -31,7 +31,7 @@
             android:id="@+id/edit_text_type"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Tipo da despesa" />
+            android:hint="@string/bill_type" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -44,7 +44,7 @@
             android:id="@+id/edit_text_price"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Valor da despesa" />
+            android:hint="@string/bill_price" />
     </android.support.design.widget.TextInputLayout>
 
     <Button
@@ -53,7 +53,7 @@
         android:layout_marginTop="40dp"
         android:background="@drawable/button_rounded"
         android:onClick="save"
-        android:text="Adicionar Despesa"
+        android:text="@string/bill_add"
         android:textColor="#fff" />
 
 </LinearLayout>
