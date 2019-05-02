@@ -14,6 +14,8 @@ public class SignUpActivity extends AppCompatActivity {
     private EditText password1;
     private EditText password2;
 
+    private UserDao dao;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +27,8 @@ public class SignUpActivity extends AppCompatActivity {
         phone = findViewById(R.id.edit_text_phone);
         password1 = findViewById(R.id.edit_text_password1);
         password2 = findViewById(R.id.edit_text_password2);
+
+        dao = new UserDao(this);
     }
 
     public void save(View view) {
@@ -38,5 +42,8 @@ public class SignUpActivity extends AppCompatActivity {
         }
 
         user.setPassword(password1.getText().toString());
+
+        dao.insert(user);
+        Toast.makeText(this, "Usuário criado com sucesso!", Toast.LENGTH_SHORT).show();
     }
 }
