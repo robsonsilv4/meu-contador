@@ -20,7 +20,7 @@ public class BillDao {
 
     public long insert(Bill bill) {
         ContentValues values = new ContentValues();
-        values.put("id", bill.getId());
+        // values.put("id", bill.getId());
         values.put("title", bill.getTitle());
         values.put("type", bill.getType());
         values.put("price", bill.getPrice());
@@ -29,12 +29,14 @@ public class BillDao {
 
     public List<Bill> findAll() {
         List<Bill> bills = new ArrayList<>();
+        // Cursor cursor = db.query("bill", new String[]{"id", "title", "type", "price"},
+        //        null, null, null, null, null);
         Cursor cursor = db.query("bill", new String[]{"id", "title", "type", "price"},
                 null, null, null, null, null);
 
         while(cursor.moveToNext()) {
             Bill bill = new Bill();
-            bill.setId(cursor.getLong(0));
+            // bill.setId(cursor.getLong(0));
             bill.setTitle(cursor.getString(1));
             bill.setType(cursor.getString(2));
             bill.setPrice(cursor.getDouble(3));

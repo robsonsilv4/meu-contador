@@ -18,6 +18,9 @@ public class Connection extends SQLiteOpenHelper {
         db.execSQL("create table user(id integer primary key autoincrement, name varchar(255)," +
                 "username varchar(100), phone varhcar(15), password varchar(255))");
 
+        db.execSQL("create table bill(id integer primary key autoincrement, title varchar(255)," +
+                "type varchar(100), price real)");
+
     }
 
     @Override

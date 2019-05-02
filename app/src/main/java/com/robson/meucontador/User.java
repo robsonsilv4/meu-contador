@@ -9,6 +9,11 @@ public class User implements Serializable {
     private String username;
     private String phone;
     private String password;
+    private String role;
+
+    public User() {
+        role = "user";
+    }
 
     public Long getId() {
         return id;
@@ -48,6 +53,14 @@ public class User implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 
     @Override

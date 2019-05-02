@@ -17,6 +17,7 @@ public class ListUsersActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_users);
+        getSupportActionBar().setTitle("Lista de Usuários");
 
         listView = findViewById(R.id.users_list);
         dao = new UserDao(this);

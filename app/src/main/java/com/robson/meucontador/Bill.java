@@ -9,6 +9,8 @@ public class Bill implements Serializable {
     private String type;
     private Double price;
 
+    // TODO: Adicionar datas
+
     public Long getId() {
         return id;
     }

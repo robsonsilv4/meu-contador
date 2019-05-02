@@ -14,6 +14,10 @@ public class LoginActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Entrar");
     }
 
+    public void btnMainAcitivity(View view) {
+        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+    }
+
     public void btnSignupAcitivity(View view) {
         startActivity(new Intent(getApplicationContext(), SignUpActivity.class));
     }
