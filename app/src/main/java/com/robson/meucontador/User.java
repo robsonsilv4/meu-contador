@@ -15,6 +15,15 @@ public class User implements Serializable {
         role = "user";
     }
 
+    public User(String name, String username, String phone, String password) {
+        this.id = null;
+        this.name = name;
+        this.username = username;
+        this.phone = phone;
+        this.password = password;
+        this.role = "Usuário";
+    }
+
     public Long getId() {
         return id;
     }

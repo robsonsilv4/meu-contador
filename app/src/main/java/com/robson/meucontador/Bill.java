@@ -11,6 +11,14 @@ public class Bill implements Serializable {
 
     // TODO: Adicionar datas
 
+
+    public Bill( String title, String type, Double price) {
+        this.id = null;
+        this.title = title;
+        this.type = type;
+        this.price = price;
+    }
+
     public Long getId() {
         return id;
     }

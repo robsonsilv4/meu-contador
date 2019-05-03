@@ -21,6 +21,17 @@ public class ListUsersActivity extends AppCompatActivity {
 
         listView = findViewById(R.id.users_list);
         dao = new UserDao(this);
+
+        User u1 = new User("Robson", "robson", "12345", "123");
+        User u2 = new User("Gildard", "gil", "12345", "123");
+        User u3 = new User("Gabriel", "gabriel", "12345", "123");
+        User u4 = new User("Max", "max", "12345", "123");
+
+        dao.insert(u1);
+        dao.insert(u2);
+        dao.insert(u3);
+        dao.insert(u4);
+
         users = dao.findAll();
 
         ArrayAdapter<User> adapter = new ArrayAdapter<User>(this, android.R.layout.simple_list_item_1);
