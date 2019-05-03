@@ -45,7 +45,7 @@ public class SignUpActivity extends AppCompatActivity {
         user.setPassword(password1.getText().toString());
 
         dao.insert(user);
-        startActivity(new Intent(getApplicationContext(), SignUpActivity.class));
+        startActivity(new Intent(getApplicationContext(), LoginActivity.class));
 
         Toast.makeText(this, "Usuário criado com sucesso!", Toast.LENGTH_SHORT).show();
     }

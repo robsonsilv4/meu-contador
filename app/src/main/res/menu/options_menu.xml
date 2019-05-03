@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/options_option"
+        android:title="Opções"
+        app:showAsAction="ifRoom">
+
+        <menu>
+            <item
+                android:id="@+id/bills_option"
+                android:title="Despesas"
+                app:showAsAction="ifRoom">
+                <menu>
+                    <item
+                        android:id="@+id/add_bill_option"
+                        android:title="Adicionar Despesa"
+                        app:showAsAction="ifRoom" />
+
+                    <item
+                        android:id="@+id/list_bills_option"
+                        android:title="Listar Despesas"
+                        app:showAsAction="ifRoom" />
+
+                </menu>
+            </item>
+
+            <item
+                android:id="@+id/users_option"
+                android:title="Usuários"
+                app:showAsAction="ifRoom">
+                <menu>
+                    <item
+                        android:id="@+id/add_user_option"
+                        android:title="Adicionar Usuário"
+                        app:showAsAction="ifRoom" />
+
+                    <item
+                        android:id="@+id/list_users_option"
+                        android:title="Listar Usuários"
+                        app:showAsAction="ifRoom" />
+
+                </menu>
+            </item>
+        </menu>
+
+    </item>
+
+</menu>

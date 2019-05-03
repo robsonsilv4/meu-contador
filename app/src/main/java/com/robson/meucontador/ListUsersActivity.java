@@ -34,7 +34,7 @@ public class ListUsersActivity extends AppCompatActivity {
 
         users = dao.findAll();
 
-        ArrayAdapter<User> adapter = new ArrayAdapter<User>(this, android.R.layout.simple_list_item_1);
+        ArrayAdapter<User> adapter = new ArrayAdapter<User>(this, android.R.layout.simple_list_item_1, users);
         listView.setAdapter(adapter);
     }
 }

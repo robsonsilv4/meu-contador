@@ -3,9 +3,13 @@ package com.robson.meucontador;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.Arrays;
 import java.util.List;
@@ -41,6 +45,52 @@ public class MainActivity extends AppCompatActivity {
 
         ArrayAdapter<Bill> adapter = new ArrayAdapter<Bill>(this, android.R.layout.simple_list_item_1, bills);
         listView.setAdapter(adapter);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.options_menu, menu);
+        return true;
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.bills_option:
+                Toast.makeText(this, "Opções de Despesas", Toast.LENGTH_SHORT).show();
+                return true;
+
+            case R.id.add_bill_option:
+                startActivity(new Intent(getApplicationContext(), AddBillActivity.class));
+                Toast.makeText(this, "Adicionar Despesas", Toast.LENGTH_SHORT).show();
+                return true;
+
+            case R.id.list_bills_option:
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                Toast.makeText(this, "Listar Despesas", Toast.LENGTH_SHORT).show();
+                return true;
+
+            case R.id.users_option:
+                Toast.makeText(this, "Opções de Usuários", Toast.LENGTH_SHORT).show();
+                return true;
+
+            case R.id.add_user_option:
+                // TODO: Criar Activity para adição/convite de usuários
+                startActivity(new Intent(getApplicationContext(), SignUpActivity.class));
+                Toast.makeText(this, "Adicionar Usuários", Toast.LENGTH_SHORT).show();
+                return true;
+
+            case R.id.list_users_option:
+                startActivity(new Intent(getApplicationContext(), ListUsersActivity.class));
+                Toast.makeText(this, "Listar Usuário", Toast.LENGTH_SHORT).show();
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+
+        }
     }
 
     public void btnAddBillAcitivity(View view) {
