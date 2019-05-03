@@ -1,7 +1,9 @@
 package com.robson.meucontador;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -37,7 +39,11 @@ public class MainActivity extends AppCompatActivity {
 
         bills = dao.findAll();
 
-        ArrayAdapter<Bill> adapter = new ArrayAdapter<Bill>(this, android.R.layout.simple_list_item_1);
+        ArrayAdapter<Bill> adapter = new ArrayAdapter<Bill>(this, android.R.layout.simple_list_item_1, bills);
         listView.setAdapter(adapter);
+    }
+
+    public void btnAddBillAcitivity(View view) {
+        startActivity(new Intent(getApplicationContext(), SignUpActivity.class));
     }
 }

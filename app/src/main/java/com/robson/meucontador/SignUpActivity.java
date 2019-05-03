@@ -1,5 +1,6 @@
 package com.robson.meucontador;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -44,6 +45,8 @@ public class SignUpActivity extends AppCompatActivity {
         user.setPassword(password1.getText().toString());
 
         dao.insert(user);
+        startActivity(new Intent(getApplicationContext(), SignUpActivity.class));
+
         Toast.makeText(this, "Usuário criado com sucesso!", Toast.LENGTH_SHORT).show();
     }
 }
