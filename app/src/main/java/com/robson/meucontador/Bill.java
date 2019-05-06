@@ -1,32 +1,32 @@
 package com.robson.meucontador;
 
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.PrimaryKey;
+import android.support.annotation.NonNull;
+
 import java.io.Serializable;
 
+@Entity
 public class Bill implements Serializable {
 
+    @NonNull
+    @PrimaryKey
     private Long id;
+
     private String title;
     private String type;
     private Double price;
 
-    // TODO: Adicionar datas
-
-
     public Bill() {
+
     }
 
-    public Bill(String title, String type, Double price) {
-        this.id = null;
-        this.title = title;
-        this.type = type;
-        this.price = price;
-    }
-
+    @NonNull
     public Long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(@NonNull Long id) {
         this.id = id;
     }
 
@@ -52,10 +52,5 @@ public class Bill implements Serializable {
 
     public void setPrice(Double price) {
         this.price = price;
-    }
-
-    @Override
-    public String toString() {
-        return title;
     }
 }

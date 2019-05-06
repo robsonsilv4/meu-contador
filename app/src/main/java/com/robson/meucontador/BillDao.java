@@ -1,48 +1,26 @@
 package com.robson.meucontador;
 
-import android.content.ContentValues;
-import android.content.Context;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
+import android.arch.persistence.room.Delete;
+import android.arch.persistence.room.Insert;
+import android.arch.persistence.room.Query;
+import android.arch.persistence.room.Update;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class BillDao {
+public interface BillDao {
 
-    private Connection connection;
-    private SQLiteDatabase db;
+    @Insert
+    void insertBill(Bill bill);
 
-    public BillDao(Context context) {
-        connection = new Connection(context);
-        db = connection.getWritableDatabase();
-    }
+    @Insert
+    void insertBills(List<Bill> bills);
 
-    public long insert(Bill bill) {
-        ContentValues values = new ContentValues();
-        // values.put("id", bill.getId());
-        values.put("title", bill.getTitle());
-        values.put("type", bill.getType());
-        values.put("price", bill.getPrice());
-        return db.insert("bill", null, values);
-    }
+    @Update
+    void updateBill(Bill bill);
 
-    public List<Bill> findAll() {
-        List<Bill> bills = new ArrayList<>();
-        // Cursor cursor = db.query("bill", new String[]{"id", "title", "type", "price"},
-        //        null, null, null, null, null);
-        Cursor cursor = db.query("bill", new String[]{"id", "title", "type", "price"},
-                null, null, null, null, null);
+    @Delete
+    void deleteBill(Bill bill);
 
-        while(cursor.moveToNext()) {
-            Bill bill = new Bill();
-            // bill.setId(cursor.getLong(0));
-            bill.setTitle(cursor.getString(1));
-            bill.setType(cursor.getString(2));
-            bill.setPrice(cursor.getDouble(3));
-            bills.add(bill);
-        }
-
-        return bills;
-    }
+    @Query("SELECT * FROM Bill WHERE id = :id")
+    Bill getBillById(Long id);
 }
