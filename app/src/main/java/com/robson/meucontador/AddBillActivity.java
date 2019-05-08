@@ -14,7 +14,7 @@ public class AddBillActivity extends AppCompatActivity {
     private EditText type;
     private EditText price;
 
-    private static final String DATABASE_NAME = "bill_db";
+    private static final String DATABASE_NAME = "Bills.db";
     private BillDatabase billDatabase;
 
     @Override

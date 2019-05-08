@@ -17,7 +17,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final String DATABASE_NAME = "bill_db";
+    private static final String DATABASE_NAME = "Bills.db";
     private BillDatabase billDatabase;
 
     private ListView listView;
@@ -59,7 +59,6 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.bills_option:
-                Toast.makeText(this, "Opções de Despesas", Toast.LENGTH_SHORT).show();
                 return true;
 
             case R.id.add_bill_option:
@@ -73,7 +72,6 @@ public class MainActivity extends AppCompatActivity {
                 return true;
 
             case R.id.users_option:
-                Toast.makeText(this, "Opções de Usuários", Toast.LENGTH_SHORT).show();
                 return true;
 
             case R.id.add_user_option:

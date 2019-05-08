@@ -10,7 +10,7 @@ import java.util.List;
 
 public class ListUsersActivity extends AppCompatActivity {
 
-    private static final String DATABASE_NAME = "user_db";
+    private static final String DATABASE_NAME = "Bills.db";
     private UserDatabase userDatabase;
 
     private ListView listView;

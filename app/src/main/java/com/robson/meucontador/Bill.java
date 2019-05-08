@@ -1,6 +1,7 @@
 package com.robson.meucontador;
 
 import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
 
@@ -19,6 +20,14 @@ public class Bill implements Serializable {
 
     public Bill() {
 
+    }
+
+    @Ignore
+    public Bill(@NonNull Long id, String title, String type, Double price) {
+        this.id = id;
+        this.title = title;
+        this.type = type;
+        this.price = price;
     }
 
     @NonNull

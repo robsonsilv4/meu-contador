@@ -3,6 +3,7 @@ package com.robson.meucontador;
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Delete;
 import android.arch.persistence.room.Insert;
+import android.arch.persistence.room.OnConflictStrategy;
 import android.arch.persistence.room.Query;
 import android.arch.persistence.room.Update;
 
@@ -11,10 +12,10 @@ import java.util.List;
 @Dao
 public interface BillDao {
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insert(Bill bill);
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insert(List<Bill> bills);
 
     @Update
@@ -23,9 +24,6 @@ public interface BillDao {
     @Delete
     void delete(Bill bill);
 
-    @Query("SELECT * FROM bill")
+    @Query("SELECT * FROM Bill")
     List<Bill> findAll();
-
-    // @Query("SELECT * FROM Bill WHERE id = :id")
-    // Bill getBillById(Long id);
 }

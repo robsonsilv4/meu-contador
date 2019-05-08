@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 public class SignUpActivity extends AppCompatActivity {
 
-    private static final String DATABASE_NAME = "user_db";
+    private static final String DATABASE_NAME = "Users.db";
     private UserDatabase userDatabase;
 
     private EditText username;
