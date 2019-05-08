@@ -1,46 +1,31 @@
 package com.robson.meucontador;
 
-import android.content.ContentValues;
-import android.content.Context;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
+import android.arch.persistence.room.Dao;
+import android.arch.persistence.room.Delete;
+import android.arch.persistence.room.Insert;
+import android.arch.persistence.room.Query;
+import android.arch.persistence.room.Update;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class UserDao {
+@Dao
+public interface UserDao {
 
-    private Connection connection;
-    private SQLiteDatabase db;
+    @Insert
+    void insert(User user);
 
-    public UserDao(Context context) {
-        connection = new Connection(context);
-        db = connection.getWritableDatabase();
-    }
+    @Insert
+    void insert(List<User> users);
 
-    public long insert(User user) {
-        ContentValues values = new ContentValues();
-        values.put("name", user.getName());
-        values.put("username", user.getUsername());
-        values.put("phone", user.getPhone());
-        values.put("password", user.getPassword());
-        return db.insert("user", null, values);
-    }
+    @Update
+    void update(User user);
 
-    public List<User> findAll() {
-        List<User> users = new ArrayList<>();
-        Cursor cursor = db.query("user", new String[]{"id", "name", "username", "phone"},
-                null, null, null, null, null);
+    @Delete
+    void delete(User user);
 
-        while(cursor.moveToNext()) {
-            User user = new User();
-            user.setId(cursor.getLong(0));
-            user.setName(cursor.getString(1));
-            user.setUsername(cursor.getString(2));
-            user.setPhone(cursor.getString(3));
-            users.add(user);
-        }
+    @Query("SELECT * FROM user")
+    List<User> findAll();
 
-        return users;
-    }
+    // @Query("SELECT * FROM User WHERE id = :id")
+    // Bill getById(Long id);
 }

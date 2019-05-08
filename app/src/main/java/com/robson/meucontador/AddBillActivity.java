@@ -1,6 +1,7 @@
 package com.robson.meucontador;
 
 import android.arch.persistence.room.Room;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -24,7 +25,6 @@ public class AddBillActivity extends AppCompatActivity {
         billDatabase = Room.databaseBuilder(getApplicationContext(), BillDatabase.class, DATABASE_NAME)
                 .fallbackToDestructiveMigration()
                 .build();
-        Toast.makeText(this, "Despesa adicionada com sucesso!", Toast.LENGTH_SHORT).show();
 
         title = findViewById(R.id.edit_text_title);
         type = findViewById(R.id.edit_text_type);
@@ -40,9 +40,11 @@ public class AddBillActivity extends AppCompatActivity {
                 bill.setTitle(title.getText().toString());
                 bill.setType(type.getText().toString());
                 bill.setPrice(Double.parseDouble(price.getText().toString()));
-                billDatabase.billDao().insertBill(bill);
+                billDatabase.billDao().insert(bill);
             }
         })).start();
+
+        startActivity(new Intent(getApplicationContext(), MainActivity.class));
         Toast.makeText(this, "Despesa adicionada com sucesso!", Toast.LENGTH_SHORT).show();
     }
 }

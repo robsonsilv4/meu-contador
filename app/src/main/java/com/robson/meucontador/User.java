@@ -1,34 +1,34 @@
 package com.robson.meucontador;
 
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.PrimaryKey;
+import android.support.annotation.NonNull;
+
 import java.io.Serializable;
 
+@Entity
 public class User implements Serializable {
 
+    @NonNull
+    @PrimaryKey
     private Long id;
+
     private String name;
     private String username;
     private String phone;
     private String password;
-    private String role;
+    // private String role;
 
     public User() {
-        role = "user";
+
     }
 
-    public User(String name, String username, String phone, String password) {
-        this.id = null;
-        this.name = name;
-        this.username = username;
-        this.phone = phone;
-        this.password = password;
-        this.role = "Usuário";
-    }
-
+    @NonNull
     public Long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(@NonNull Long id) {
         this.id = id;
     }
 
@@ -62,18 +62,5 @@ public class User implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
-
-    @Override
-    public String toString() {
-        return name;
     }
 }
