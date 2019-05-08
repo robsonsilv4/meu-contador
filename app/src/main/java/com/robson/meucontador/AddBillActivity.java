@@ -45,6 +45,7 @@ public class AddBillActivity extends AppCompatActivity {
         })).start();
 
         startActivity(new Intent(getApplicationContext(), MainActivity.class));
+        finish();
         Toast.makeText(this, "Despesa adicionada com sucesso!", Toast.LENGTH_SHORT).show();
     }
 }

@@ -54,7 +54,6 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -93,5 +92,6 @@ public class MainActivity extends AppCompatActivity {
 
     public void btnAddBillAcitivity(View view) {
         startActivity(new Intent(getApplicationContext(), SignUpActivity.class));
+        finish();
     }
 }
